@@ -11,11 +11,13 @@ import { filter, map, Subscription } from 'rxjs';
 export class BreadcrumbsComponent implements OnDestroy {
   
   public titulo: string = '';
+  public principal: string = '';
   public tituloSubs$: Subscription;
 
   constructor(private router: Router){
     this.tituloSubs$ = this.getArgumentosRuta()
-                            .subscribe( ({titulo}) => {
+                            .subscribe( ({principal, titulo}) => {
+                              this.principal = principal;
                               this.titulo = titulo;
                               document.title = `UEEE AdminPro - ${titulo}`;
                             })

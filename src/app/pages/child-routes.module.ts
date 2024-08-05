@@ -21,35 +21,35 @@ import { OfertaComponent } from './mantenimientos/cursos/oferta.component';
 import { ImcComponent } from './mantenimientos/estudiantes/imc.component';
 
 const childRoutes: Routes = [
-  { path:'', component: DashboardComponent, data: { titulo: 'Dashboard' }, },
+  { path:'', component: DashboardComponent, data: { principal: 'Personal', titulo: 'Dashboard' }, },
   
   //Rutas propias del usuario logeado
-  { path:'perfil', component: PerfilComponent, data: { titulo: 'Perfil' } },
-  { path:'settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de cuenta' } },
-  { path:'buscar/:termino', component: BusquedaComponent, data: { titulo: 'Buscar' } },
+  { path:'perfil', component: PerfilComponent, data: { principal: 'Personal', titulo: 'Perfil' } },
+  { path:'settings', component: AccountSettingsComponent, data: { principal: 'Personal', titulo: 'Ajustes de cuenta' } },
+  { path:'buscar/:termino', component: BusquedaComponent, data: { principal: 'Personal', titulo: 'Buscar' } },
   
   //Rutas de gestión
 
-  { path:'gestion/listados', component: ListadosComponent, data: { titulo: 'Gestión de listados de estudiantes' } },
-  { path:'gestion/titulacion', canActivate: [AdminGuard] ,component: TitulacionComponent, data: { titulo: 'Módulo de títulos de bachiller' } },
+  { path:'gestion/listados', component: ListadosComponent, data: { principal: 'Gestión escolar', titulo: 'Gestión de listados de estudiantes' } },
+  { path:'gestion/titulacion', canActivate: [AdminGuard] ,component: TitulacionComponent, data: { principal: 'Gestión escolar',  titulo: 'Módulo de títulos de bachiller' } },
 
   //Rutas de estudiantes
   //Si deseamos usar enlaces sin parámetros debemos ubicarlos antes de los que usan parámetros
-  { path:'estudiantes/asignacion', canActivate: [AdminGuard] ,component: AsignacionesComponent, data: { titulo: 'Asignación de estudiantes' } },
-  { path:'estudiantes/asignacion/:id', canActivate: [AdminGuard] ,component: AsignacionComponent, data: { titulo: 'Administración de asignación de estudiantes' } },
-  { path:'estudiantes/imc/:id', canActivate: [AdminGuard] ,component: ImcComponent, data: { titulo: 'Registro de IMC' } },
-  { path:'estudiantes/perfil', component: PerfilEstudiantilComponent, data: { titulo: 'Datos de perfil estudiantil' } },
-  { path:'estudiantes/:id', component: EstudianteComponent, data: { titulo: 'Administración de datos de estudiantes' } },
+  { path:'estudiantes/asignacion', canActivate: [AdminGuard] ,component: AsignacionesComponent, data: { principal: 'Estudiantes',  titulo: 'Asignación de estudiantes' } },
+  { path:'estudiantes/asignacion/:id', canActivate: [AdminGuard] ,component: AsignacionComponent, data: { principal: 'Estudiantes',titulo: 'Administración de asignación de estudiantes' } },
+  { path:'estudiantes/imc/:id', canActivate: [AdminGuard] ,component: ImcComponent, data: { principal: 'Estudiantes',titulo: 'Registro de IMC' } },
+  { path:'estudiantes/perfil', component: PerfilEstudiantilComponent, data: { principal: 'Estudiantes',titulo: 'Datos de perfil estudiantil' } },
+  { path:'estudiantes/:id', component: EstudianteComponent, data: { principal: 'Estudiantes',titulo: 'Administración de datos de estudiantes' } },
 
   //Rutas de cursos
-  { path:'cursos', component: CursosComponent, data: { titulo: 'Administración de cursos' } },
-  { path:'cursos/oferta', component: OfertaComponent, data: { titulo: 'Información de oferta educativa' } },
-  { path:'curso/:id', component: CursoComponent, data: { titulo: 'Administración de información de curso' } },
+  { path:'cursos', component: CursosComponent, data: { principal: 'Cursos', titulo: 'Administración de cursos' } },
+  { path:'cursos/oferta', component: OfertaComponent, data: { principal: 'Cursos',titulo: 'Información de oferta educativa' } },
+  { path:'curso/:id', component: CursoComponent, data: { principal: 'Cursos', titulo: 'Administración de información de curso' } },
   
   //Rutas protegidas para admin
     
-  { path:'usuarios', canActivate: [AdminGuard] ,component: UsuariosComponent, data: { titulo: 'Mantenimiento de usuarios' } },
-  { path:'registro', canActivate: [AdminGuard] ,component: RegistroComponent, data: { titulo: 'Registro de usuario' } },
+  { path:'usuarios', canActivate: [AdminGuard] ,component: UsuariosComponent, data: { principal: 'Personal', titulo: 'Mantenimiento de usuarios' } },
+  { path:'registro', canActivate: [AdminGuard] ,component: RegistroComponent, data: { principal: 'Personal', titulo: 'Registro de usuario' } },
 
 
 
